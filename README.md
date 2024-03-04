@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>PRAVIN KUMAR A</H3>
+<H3>20222323015</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>03.03.24</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +37,70 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+data=pd.read_csv("/kaggle-raw.csv")
+data
 
+# spliting the dataset
+X = data.iloc[:, :-1].values
+print(X)
+
+# finding the missing values
+data.isnull().sum()
+
+
+# Handling the missing values
+data.fillna(data.mean().round(1), inplace=True)
+data
+
+
+data.isnull().sum()
+data
+
+
+y=data.iloc[:, -1]
+print(y)
+
+
+# check for duplication
+data.duplicated()
+data
+
+# Outlier detections
+print(data["Author_name"].describe)
+
+# spliting the dataset for training & testing
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2)
+print(X_train)
+print(len(X_train))
+print(X_test)
+print(len(X_test))
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+# READ CSV FILE
+![read](https://github.com/RAVENPRAVIN/Ex-1-NN/assets/146820534/d2131384-e9f2-4ce6-8b4e-9564f123b3cb)
+
+# NULL VALUE
+![null value](https://github.com/RAVENPRAVIN/Ex-1-NN/assets/146820534/e38c9dc4-a784-4b74-bb28-715725124316)
+
+# Handling the missing values
+![haling](https://github.com/RAVENPRAVIN/Ex-1-NN/assets/146820534/18a092c4-f874-46c1-b318-d19c2cc2c522)
+
+# DUPLICATION
+![duplication](https://github.com/RAVENPRAVIN/Ex-1-NN/assets/146820534/a0461eb2-26c6-489d-9ce6-157086cdffea)
+
+# SPLIT
+![spliting](https://github.com/RAVENPRAVIN/Ex-1-NN/assets/146820534/b72d0798-c5c3-4489-b7d0-6a4176203937)
+### 
+![y](https://github.com/RAVENPRAVIN/Ex-1-NN/assets/146820534/b7c2d8ac-d0dc-4d0b-8f56-86a47278bac5)
+
+# OUTLIER AND DETECTION
+
+![outliers and detection](https://github.com/RAVENPRAVIN/Ex-1-NN/assets/146820534/56cdcd5b-0291-4de7-bb3c-3a9203ee5d62)
 
 
 ## RESULT:
