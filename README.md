@@ -39,6 +39,7 @@ STEP 6:Splitting the data into test and train<BR>
 ##  PROGRAM:
 
 # import libraries
+```py
 from google.colab import files
 import pandas as pd
 import seaborn as sns
@@ -49,49 +50,71 @@ from sklearn.model_selection import train_test_split
 from scipy import stats
 import numpy as np
 
+```
 # Read the dataset
+```py
 df=pd.read_csv("Churn_Modelling.csv")
+```
 
 
 # Checking Data
+```py
 df.head()
 df.tail()
 df.columns
+```
 
 # finding the missing values
+```py
 data.isnull().sum()
 
+```
 # Check for Duplicates
+```py
 df.duplicated()
+```
 
 # Assigning Y
+```py
 y = df.iloc[:, -1].values
 print(y)
+```
 
 # Check for duplicates
+```py
 df.duplicated()
+```
 
 # Check for outliers
+```py
 df.describe()
+```
 
 # Dropping string values data from dataset
+```py
 data = df.drop(['Surname', 'Geography','Gender'], axis=1)
 data.head()
+```
 
 # Normalize the dataset
+```py
 scaler=MinMaxScaler()
 df1=pd.DataFrame(scaler.fit_transform(data))
 print(df1)
+```
 
 
 # Split the dataset
+```py
 X=df.iloc[:,:-1].values
 y=df.iloc[:,-1].values
 print(X)
 print(y)
+```
 
 
 # spliting the dataset for training & testing
+```py
 X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
 print("X_train\n")
 print(X_train)
@@ -99,6 +122,7 @@ print("\nLenght of X_train ",len(X_train))
 print("\nX_test\n")
 print(X_test)
 print("\nLenght of X_test ",len(X_test))
+```
 
 ## OUTPUT:
 # Dataset
